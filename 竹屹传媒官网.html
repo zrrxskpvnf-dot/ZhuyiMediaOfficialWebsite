@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>宜宾竹屹传媒有限公司 · 竹屹传媒 ZHUYI MEDIA</title>
+<link rel="icon" type="image/png" href="assets/logo.png">
+<link rel="preload" as="image" href="assets/背景1.png">
+<!-- 字体：思源宋体(展示) + 思源黑体(正文) -->
+<link rel="stylesheet" href="https://miaoda.feishu.cn/fonts/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
+<style>
+/* ===== 设计Token：竹青系 ===== */
+:root{
+  --paper:#F6FAF5;
+  --surface:#FFFFFF;
+  --ink:#15241B;
+  --muted:#5D6E62;
+  --bamboo-950:#0C281A;
+  --bamboo-900:#113726;
+  --bamboo-800:#1A4A32;
+  --bamboo-700:#1F5C3E;
+  --bamboo-600:#2A7450;
+  --bamboo-500:#2F8A56;
+  --bamboo-300:#7FBF95;
+  --bamboo-100:#E6F1E9;
+  --bamboo-50:#F0F7F2;
+  --gold:#C8A24B;
+  --gold-soft:#E9D9AF;
+  --line:#DDE7DF;
+  --radius:16px;
+  --shadow:0 10px 30px rgba(17,55,38,.10);
+  --font-serif:"Noto Serif SC",serif;
+  --font-sans:"Noto Sans SC","Microsoft YaHei",-apple-system,"PingFang SC",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+  font-size:16px;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.container{width:min(1200px,92%);margin-inline:auto}
+section{padding:88px 0;position:relative}
+
+/* 竹节分隔纹理 */
+.section-tag{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:13px;letter-spacing:.35em;font-weight:500;color:var(--bamboo-600);
+  text-transform:uppercase;margin-bottom:16px;
+}
+.section-tag::before{content:"";width:26px;height:2px;background:var(--gold)}
+.section-title{
+  font-family:var(--font-serif);font-weight:900;font-size:clamp(28px,4vw,42px);
+  line-height:1.25;color:var(--bamboo-950);letter-spacing:.01em;
+}
+.section-sub{margin-top:14px;color:var(--muted);max-width:640px;font-size:16px}
+
+/* ===== 顶部导航 ===== */
+.nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);
+  transition:box-shadow .3s ease;
+}
+.nav.scrolled{box-shadow:var(--shadow)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img.logo{height:46px;width:auto;cursor:pointer}
+.menu{display:flex;gap:34px;list-style:none}
+.menu a{
+  font-size:15.5px;font-weight:500;color:var(--bamboo-900);
+  position:relative;padding:6px 0;transition:color .2s;
+}
+.menu a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:var(--gold);transition:width .28s cubic-bezier(.22,1,.36,1);
+}
+.menu a:hover{color:var(--bamboo-600)}
+.menu a:hover::after{width:100%}
+.menu a.active{color:var(--bamboo-600)}
+.menu a.active::after{width:100%}
+
+.nav-right{display:flex;align-items:center;gap:16px}
+.lang-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid var(--bamboo-300);color:var(--bamboo-700);
+  background:transparent;padding:7px 16px;border-radius:999px;
+  font-size:13.5px;font-weight:600;cursor:pointer;transition:all .2s;
+}
+.lang-btn:hover{background:var(--bamboo-100)}
+.lang-btn .dot{width:7px;height:7px;border-radius:50%;background:var(--gold)}
+.cta-nav{
+  background:var(--bamboo-700);color:#fff;padding:9px 20px;border-radius:999px;
+  font-size:14px;font-weight:600;transition:background .2s;
+}
+.cta-nav:hover{background:var(--bamboo-600)}
+
+.burger{display:none;background:none;border:0;cursor:pointer;width:40px;height:40px;position:relative;z-index:110}
+.burger span{display:block;width:24px;height:2px;background:var(--bamboo-900);margin:5px auto;transition:.3s}
+
+/* ===== Hero ===== */
+.hero{
+  min-height:88vh;display:flex;align-items:center;position:relative;overflow:hidden;
+  color:#fff;
+}
+.hero-bg{position:absolute;inset:0;background:url("assets/背景1.png") center/cover no-repeat}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(10,34,22,.82) 0%,rgba(10,34,22,.55) 48%,rgba(10,34,22,.30) 100%);
+}
+.hero-inner{position:relative;z-index:2;padding:80px 0;max-width:760px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid rgba(255,255,255,.35);border-radius:999px;
+  padding:8px 18px;font-size:13px;letter-spacing:.12em;margin-bottom:28px;
+  background:rgba(255,255,255,.08);backdrop-filter:blur(4px);
+}
+.hero-badge .leaf{color:var(--gold-soft)}
+.hero h1{
+  font-family:var(--font-serif);font-weight:900;font-size:clamp(34px,6vw,64px);
+  line-height:1.24;letter-spacing:.01em;text-shadow:0 4px 30px rgba(0,0,0,.3);
+}
+.hero h1 em{font-style:normal;color:var(--gold-soft)}
+.hero p.lead{margin-top:22px;font-size:clamp(16px,1.6vw,19px);color:rgba(255,255,255,.9);max-width:600px}
+.hero-actions{display:flex;gap:16px;margin-top:38px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 30px;border-radius:999px;font-size:15.5px;font-weight:600;
+  cursor:pointer;border:1.5px solid transparent;transition:all .22s ease;
+}
+.btn-primary{background:var(--gold);color:#1d2c20}
+.btn-primary:hover{background:#d6b45e;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.65)}
+.btn-ghost:hover{background:rgba(255,255,255,.14)}
+.hero-stats{display:flex;gap:46px;margin-top:56px;flex-wrap:wrap}
+.hero-stats .stat b{font-family:var(--font-serif);font-size:30px;font-weight:900;color:var(--gold-soft)}
+.hero-stats .stat span{display:block;font-size:13px;color:rgba(255,255,255,.78);letter-spacing:.06em;margin-top:2px}
+.scroll-hint{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:12px;letter-spacing:.3em;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:2}
+.scroll-hint::after{content:"";width:1px;height:34px;background:rgba(255,255,255,.5);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ===== 关于公司 ===== */
+.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center;margin-top:44px}
+.about-copy p{color:var(--muted);margin-bottom:18px;font-size:16px}
+.about-copy p strong{color:var(--bamboo-800);font-weight:600}
+.scope-box{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:30px;box-shadow:var(--shadow)}
+.scope-box h3{font-family:var(--font-serif);font-size:18px;color:var(--bamboo-900);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.scope-chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{
+  font-size:13.5px;color:var(--bamboo-800);background:var(--bamboo-50);
+  border:1px solid var(--bamboo-300);padding:7px 14px;border-radius:999px;
+  transition:all .2s;
+}
+.chip:hover{background:var(--bamboo-700);color:#fff;border-color:var(--bamboo-700)}
+.value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.value-item{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:26px 24px;transition:transform .25s,box-shadow .25s}
+.value-item:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.value-item .num{font-family:var(--font-serif);font-size:13px;font-weight:900;color:var(--gold);letter-spacing:.2em;margin-bottom:10px}
+.value-item h4{font-family:var(--font-serif);font-size:18px;color:var(--bamboo-900);margin-bottom:8px}
+.value-item p{font-size:14px;color:var(--muted)}
+
+/* ===== 品牌影片 ===== */
+.video-section{background:var(--bamboo-950);color:#fff}
+.video-section .section-title{color:#fff}
+.video-section .section-sub{color:rgba(255,255,255,.75)}
+.video-wrap{position:relative;border-radius:20px;overflow:hidden;margin-top:44px;box-shadow:0 30px 60px rgba(0,0,0,.45);aspect-ratio:16/7;background:#08150e}
+.video-wrap video{width:100%;height:100%;object-fit:cover;display:block}
+.video-cover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:18px;background:linear-gradient(180deg,rgba(8,21,14,.25),rgba(8,21,14,.7));cursor:pointer;transition:background .3s}
+.video-cover:hover{background:linear-gradient(180deg,rgba(8,21,14,.1),rgba(8,21,14,.55))}
+.video-cover .play{
+  width:82px;height:82px;border-radius:50%;background:rgba(255,255,255,.14);
+  border:2px solid rgba(255,255,255,.6);display:flex;align-items:center;justify-content:center;
+  transition:transform .25s,background .25s;
+}
+.video-cover:hover .play{transform:scale(1.08);background:var(--gold);border-color:var(--gold)}
+.video-cover .play svg{width:28px;height:28px;fill:#fff;margin-left:4px}
+.video-cover p{font-family:var(--font-serif);font-size:19px;letter-spacing:.14em}
+
+/* ===== 核心业务 ===== */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:48px}
+.svc-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;transition:transform .28s,box-shadow .28s;display:flex;flex-direction:column;
+}
+.svc-card:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+.svc-card .pic{position:relative;overflow:hidden;aspect-ratio:16/9}
+.svc-card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.svc-card:hover .pic img{transform:scale(1.07)}
+.svc-card .pic::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(12,40,26,.25))}
+.svc-body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+.svc-body h3{font-family:var(--font-serif);font-size:19px;color:var(--bamboo-900);margin-bottom:8px}
+.svc-body p{font-size:14px;color:var(--muted);flex:1}
+.svc-more{margin-top:16px;font-size:13.5px;color:var(--bamboo-600);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.svc-more svg{width:15px;height:15px;transition:transform .2s}
+.svc-card:hover .svc-more svg{transform:translateX(4px)}
+
+/* ===== 新闻中心 ===== */
+.news-grid{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin-top:48px}
+.news-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:transform .25s,box-shadow .25s;display:flex;flex-direction:column;flex:0 0 calc((100% - 52px)/3)}
+.news-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.news-card .pic{position:relative;overflow:hidden;border-radius:10px;aspect-ratio:16/9;margin-bottom:16px}
+.news-card .pic img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.news-card:hover .pic img{transform:scale(1.05)}
+.news-card .body{padding:0 10px 8px;display:flex;flex-direction:column;flex:1}
+.news-card .date{font-family:var(--font-serif);font-size:13px;font-weight:700;color:var(--gold);letter-spacing:.08em}
+.news-card h3{font-family:var(--font-serif);font-size:18px;color:var(--bamboo-900);margin:12px 0 10px;line-height:1.5}
+.news-card p{font-size:14px;color:var(--muted);flex:1}
+.news-card .more{margin-top:16px;font-size:13.5px;color:var(--bamboo-600);font-weight:600;display:inline-flex;align-items:center;gap:6px}
+.news-card .more svg{width:15px;height:15px;transition:transform .2s}
+.news-card:hover .more svg{transform:translateX(4px)}
+
+/* ===== 联系我们 ===== */
+.contact-wrap{background:var(--bamboo-900);border-radius:24px;overflow:hidden;color:#fff;margin-top:44px;display:grid;grid-template-columns:1fr 1fr}
+.contact-info{padding:46px 44px}
+.contact-info h3{font-family:var(--font-serif);font-size:24px;margin-bottom:10px}
+.contact-info > p{color:rgba(255,255,255,.78);margin-bottom:30px;font-size:15px}
+.c-list{list-style:none;display:flex;flex-direction:column;gap:22px}
+.c-list li{display:flex;gap:16px;align-items:flex-start}
+.c-list .ic{width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.c-list .ic svg{width:20px;height:20px;fill:none;stroke:var(--gold-soft);stroke-width:1.8}
+.c-list b{display:block;font-size:13px;color:rgba(255,255,255,.6);font-weight:500;letter-spacing:.06em}
+.c-list span{font-size:15px}
+.contact-form{padding:46px 44px;background:var(--surface);color:var(--ink)}
+.contact-form h3{font-family:var(--font-serif);font-size:22px;color:var(--bamboo-950);margin-bottom:6px}
+.contact-form .tip{font-size:13.5px;color:var(--muted);margin-bottom:26px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13px;font-weight:600;color:var(--bamboo-900);margin-bottom:7px}
+.field input,.field textarea{
+  width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;
+  font-family:var(--font-sans);font-size:14.5px;color:var(--ink);background:#fff;transition:border .2s,box-shadow .2s;
+}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--bamboo-500);box-shadow:0 0 0 3px rgba(47,138,86,.15)}
+.field textarea{resize:vertical;min-height:110px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn-submit{width:100%;justify-content:center;background:var(--bamboo-700);color:#fff;padding:14px;margin-top:6px}
+.btn-submit:hover{background:var(--bamboo-600)}
+.form-note{margin-top:14px;font-size:12.5px;color:var(--muted);text-align:center}
+
+/* ===== 页脚 ===== */
+.footer{background:var(--bamboo-950);color:rgba(255,255,255,.75);padding:60px 0 0}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px}
+.footer .brand{margin-bottom:18px}
+.footer .f-desc{font-size:14px;line-height:1.8;max-width:320px}
+.footer h5{color:#fff;font-family:var(--font-serif);font-size:16px;margin-bottom:18px}
+.footer ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+.footer ul a{font-size:14px;color:rgba(255,255,255,.7);transition:color .2s}
+.footer ul a:hover{color:var(--gold-soft)}
+.footer .f-contact li{font-size:14px;display:flex;gap:10px;align-items:flex-start;color:rgba(255,255,255,.72)}
+.footer .f-contact svg{width:16px;height:16px;stroke:var(--gold-soft);fill:none;stroke-width:1.8;margin-top:4px;flex-shrink:0}
+.copyright{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;font-size:13px;color:rgba(255,255,255,.55);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* ===== 滚动揭示 ===== */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== 表单 Toast ===== */
+.toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,20px);z-index:200;
+  background:var(--bamboo-800);color:#fff;padding:14px 28px;border-radius:999px;
+  font-size:14.5px;box-shadow:0 12px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;
+  transition:all .35s ease;
+}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* ===== 响应式 ===== */
+@media (max-width:960px){
+  .about-grid,.contact-wrap{grid-template-columns:1fr}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .news-card{flex-basis:calc((100% - 26px)/2)}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .menu{
+    position:fixed;inset:0 0 0 auto;width:min(78%,340px);background:#fff;
+    flex-direction:column;gap:0;padding:90px 34px;box-shadow:-20px 0 50px rgba(0,0,0,.2);
+    transform:translateX(100%);transition:transform .32s cubic-bezier(.22,1,.36,1);z-index:100;
+  }
+  .menu.open{transform:translateX(0)}
+  .menu li{border-bottom:1px solid var(--line)}
+  .menu a{display:block;padding:18px 0;font-size:18px}
+  .menu a::after{display:none}
+  .burger{display:block;width:44px;height:44px}
+  .lang-btn{min-height:44px}
+  .field input,.field textarea,#cf-need{font-size:16px!important}
+  .cta-nav{display:none}
+  .services-grid,.value-grid{grid-template-columns:1fr}
+  .news-card{flex-basis:100%}
+  .hero-stats{gap:26px}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  section{padding:64px 0}
+}
+/* 无障碍：焦点可见 */
+:focus-visible{outline:2px solid var(--bamboo-500);outline-offset:2px}
+/* 减少动效偏好 */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶部导航 ===== -->
+<header class="nav" id="nav">
+  <div class="container nav-inner">
+    <!-- 公司 Logo：替换 assets/logo.png 即可自定义换标 -->
+    <a class="brand" href="#hero" aria-label="竹屹传媒首页">
+      <img class="logo" src="assets/logo.png" alt="竹屹传媒 ZHUYI MEDIA">
+    </a>
+    <nav>
+      <ul class="menu" id="menu">
+        <li><a href="#about" data-i18n="nav.about">关于公司</a></li>
+        <li><a href="#services" data-i18n="nav.business">核心业务</a></li>
+        <li><a href="#news" data-i18n="nav.news">新闻中心</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <button class="lang-btn" id="langBtn" aria-label="切换语言">
+        <span class="dot"></span><span id="langLabel">EN</span>
+      </button>
+      <a class="cta-nav" href="#contact" data-i18n="nav.cta">获取方案</a>
+      <button class="burger" id="burger" aria-label="菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-inner">
+    <span class="hero-badge"><span class="leaf">◆</span><span data-i18n="hero.badge">宜宾竹屹传媒有限公司</span></span>
+    <h1><span data-i18n="hero.t1">以影像与创意</span><br><em data-i18n="hero.t2">为品牌注入生命力</em></h1>
+    <p class="lead" data-i18n="hero.lead">我们专注于 AI 宣传片、数字内容制作与文化传播，为区域品牌提供从策划、摄制到推广的一站式传媒服务。</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#about" data-i18n="hero.cta1">了解我们</a>
+      <a class="btn btn-ghost" href="#contact" data-i18n="hero.cta2">联系合作</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><b data-i18n="hero.s1v">10+</b><span data-i18n="hero.s1">业务领域</span></div>
+      <div class="stat"><b data-i18n="hero.s2v">100+</b><span data-i18n="hero.s2">合作项目</span></div>
+      <div class="stat"><b data-i18n="hero.s3v">10</b><span data-i18n="hero.s3">项核心服务</span></div>
+      <div class="stat"><b data-i18n="hero.s4v">AIGC</b><span data-i18n="hero.s4">前沿技术驱动</span></div>
+    </div>
+  </div>
+  <div class="scroll-hint" data-i18n="hero.scroll">向下滚动</div>
+</section>
+
+<!-- ===== 关于公司 ===== -->
+<section id="about">
+  <div class="container">
+    <span class="section-tag reveal" data-i18n="about.tag">关于公司</span>
+    <h2 class="section-title reveal" data-i18n="about.title">深耕传媒，笃行致远</h2>
+    <div class="about-grid">
+      <div class="about-copy reveal">
+        <p><strong data-i18n="about.p1">宜宾竹屹传媒有限公司</strong><span data-i18n="about.p1b"> 是一家以内容创意与技术为驱动的综合传媒企业，根植宜宾、服务全国，为政府机构与各类企业提供影视、设计、策划与数字内容的一体化解决方案。</span></p>
+        <p data-i18n="about.p2">依托 AI 内容生产与专业制作团队，我们将"文化 + 科技"融入每一件作品，助力品牌在数字时代讲好故事、放大声量、沉淀价值。</p>
+        <p data-i18n="about.p3">从一部 AI 宣传片，到一套完整的企业形象与营销体系，我们以匠心与专业，陪伴合作伙伴共同成长。</p>
+      </div>
+      <div class="scope-box reveal">
+        <h3 data-i18n="about.scopeTitle">经营范围</h3>
+        <div class="scope-chips" id="scopeChips"></div>
+      </div>
+    </div>
+    <div class="value-grid">
+      <div class="value-item reveal">
+        <div class="num">01</div>
+        <h4 data-i18n="about.v1t">内容创意</h4>
+        <p data-i18n="about.v1d">以洞察驱动策划，让每一句文案、每一帧画面都服务于品牌目标。</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="num">02</div>
+        <h4 data-i18n="about.v2t">AI 技术</h4>
+        <p data-i18n="about.v2d">将 AIGC 融入摄制与制作流程，大幅提升效率，兼顾品质与成本。</p>
+      </div>
+      <div class="value-item reveal">
+        <div class="num">03</div>
+        <h4 data-i18n="about.v3t">全案服务</h4>
+        <p data-i18n="about.v3d">从影视、设计到活动策划与传播，一站式交付，省心高效。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 品牌影片 ===== -->
+<section class="video-section" id="video">
+  <div class="container">
+    <span class="section-tag reveal" data-i18n="video.tag">品牌影片 · AI 宣传片</span>
+    <h2 class="section-title reveal" data-i18n="video.title">一支片子，讲清一个品牌</h2>
+    <p class="section-sub reveal" data-i18n="video.sub">这是我们的品牌宣传片。点击播放，感受竹屹传媒如何用影像与 AI，为品牌注入生命力。</p>
+    <div class="video-wrap reveal" id="videoWrap">
+      <video id="brandVideo" preload="metadata" playsinline controls src="assets/AI宣传片.mp4"></video>
+      <div class="video-cover" id="videoCover">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        <p data-i18n="video.play">播放品牌宣传片</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 核心业务 ===== -->
+<section id="services">
+  <div class="container">
+    <span class="section-tag reveal" data-i18n="services.tag">核心业务</span>
+    <h2 class="section-title reveal" data-i18n="services.title">一站式传媒服务</h2>
+    <p class="section-sub reveal" data-i18n="services.sub">覆盖影视摄制、内容制作、策划设计与活动会展，以专业团队服务每一个品牌。</p>
+    <div class="services-grid">
+      <article class="svc-card reveal" data-svc="0">
+        <div class="pic"><img src="assets/数字内容制作服务.png" alt="数字内容制作服务"></div>
+        <div class="svc-body">
+          <h3 data-name>数字内容制作服务</h3>
+          <p data-desc>从数字资产到互动内容，以专业制作团队交付高质量数字内容。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="1">
+        <div class="pic"><img src="assets/组织文化艺术交流活动.png" alt="组织文化艺术交流活动"></div>
+        <div class="svc-body">
+          <h3 data-name>组织文化艺术交流活动</h3>
+          <p data-desc>策划与执行文化交流活动，以艺术连接品牌与大众。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="2">
+        <div class="pic"><img src="assets/电影摄制服务.png" alt="电影摄制服务"></div>
+        <div class="svc-body">
+          <h3 data-name>电影摄制服务</h3>
+          <p data-desc>覆盖前期、拍摄到后期的完整影视制作流程。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="3">
+        <div class="pic"><img src="assets/广告设计.png" alt="广告设计"></div>
+        <div class="svc-body">
+          <h3 data-name>广告设计</h3>
+          <p data-desc>创意广告视觉与投放素材，让品牌被看见、被记住。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="4">
+        <div class="pic"><img src="assets/企业形象策划.png" alt="企业形象策划"></div>
+        <div class="svc-body">
+          <h3 data-name>企业形象策划</h3>
+          <p data-desc>构建统一而有辨识度的企业视觉与品牌形象。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="5">
+        <div class="pic"><img src="assets/市场营销策划.png" alt="市场营销策划"></div>
+        <div class="svc-body">
+          <h3 data-name>市场营销策划</h3>
+          <p data-desc>以数据与洞察驱动，制定可落地的营销策略。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="6">
+        <div class="pic"><img src="assets/会议及展览服务.png" alt="会议及展览服务"></div>
+        <div class="svc-body">
+          <h3 data-name>会议及展览服务</h3>
+          <p data-desc>会议会展的策划、搭建与执行一体化服务。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="7">
+        <div class="pic"><img src="assets/平面设计.png" alt="平面设计"></div>
+        <div class="svc-body">
+          <h3 data-name>平面设计</h3>
+          <p data-desc>海报、画册、VI 等多元平面视觉设计。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="svc-card reveal" data-svc="8">
+        <div class="pic"><img src="assets/图文设计制作.png" alt="图文设计制作"></div>
+        <div class="svc-body">
+          <h3 data-name>图文设计制作</h3>
+          <p data-desc>从创意到落地，一站式图文设计与制作。</p>
+          <span class="svc-more" data-i18n="services.more">了解详情<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 新闻中心 ===== -->
+<section id="news" style="background:var(--bamboo-50)">
+  <div class="container">
+    <span class="section-tag reveal" data-i18n="news.tag">新闻中心</span>
+    <h2 class="section-title reveal" data-i18n="news.title">公司动态</h2>
+    <p class="section-sub reveal" data-i18n="news.sub">了解竹屹传媒的最新进展与行业洞察。</p>
+    <div class="news-grid">
+      <article class="news-card reveal" data-news="0">
+        <div class="pic"><img src="assets/公司动态1.png" alt="AI宣传片升级动态配图"></div>
+        <div class="body">
+          <span class="date" data-date>2026-09-18</span>
+          <h3 data-title>竹屹传媒助力区域品牌完成 AI 宣传片升级</h3>
+          <p data-body>依托 AIGC 内容生产技术，公司为多家合作品牌完成宣传片的高效迭代，显著降低制作周期与成本。</p>
+          <span class="more" data-i18n="news.more">阅读更多<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+      <article class="news-card reveal" data-news="1">
+        <div class="pic"><img src="assets/公司动态2.png" alt="数字内容制作项目交付动态配图"></div>
+        <div class="body">
+          <span class="date" data-date>2026-08-30</span>
+          <h3 data-title>公司完成新一轮数字内容制作项目交付</h3>
+          <p data-body>覆盖企业形象与产品展示的系列数字内容项目陆续交付，赢得客户认可。</p>
+          <span class="more" data-i18n="news.more">阅读更多<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></svg></span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 联系我们 ===== -->
+<section id="contact">
+  <div class="container">
+    <span class="section-tag reveal" data-i18n="contact.tag">联系我们</span>
+    <h2 class="section-title reveal" data-i18n="contact.title">让我们聊聊您的项目</h2>
+    <p class="section-sub reveal" data-i18n="contact.sub">无论是 AI 宣传片、品牌设计还是活动策划，欢迎随时与我们取得联系。</p>
+    <div class="contact-wrap reveal">
+      <div class="contact-info">
+        <h3 data-i18n="contact.infoTitle">宜宾竹屹传媒有限公司</h3>
+        <p data-i18n="contact.infoSub">您可以通过以下方式联系我们，我们将尽快回复。</p>
+        <ul class="c-list">
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></span>
+            <span><b data-i18n="contact.addr">公司地址</b><span data-i18n="contact.addrV">四川省宜宾市（地址待补充）</span></span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg></span>
+            <span><b data-i18n="contact.tel">联系电话</b><span data-i18n="contact.telV">待补充</span></span>
+          </li>
+          <li>
+            <span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg></span>
+            <span><b data-i18n="contact.mail">电子邮箱</b><span data-i18n="contact.mailV">待补充</span></span>
+          </li>
+        </ul>
+      </div>
+      <div class="contact-form">
+        <h3 data-i18n="contact.formTitle">在线留言</h3>
+        <p class="tip" data-i18n="contact.formTip">留下您的需求，我们会尽快与您联系。</p>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="cf-name" data-i18n="contact.name">您的称呼</label>
+              <input id="cf-name" type="text" required data-i18n-ph="contact.namePh" placeholder="请输入您的称呼">
+            </div>
+            <div class="field">
+              <label for="cf-phone" data-i18n="contact.phone">联系电话</label>
+              <input id="cf-phone" type="tel" required data-i18n-ph="contact.phonePh" placeholder="请输入联系电话">
+            </div>
+          </div>
+          <div class="field">
+            <label for="cf-need" data-i18n="contact.need">您的需求</label>
+            <select id="cf-need" style="width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:10px;font-family:var(--font-sans);font-size:14.5px;color:var(--ink);background:#fff">
+              <option data-i18n="contact.opt1">AI 宣传片制作</option>
+              <option data-i18n="contact.opt2">数字内容 / 影视摄制</option>
+              <option data-i18n="contact.opt3">广告设计 / 品牌策划</option>
+              <option data-i18n="contact.opt4">会议会展服务</option>
+              <option data-i18n="contact.opt5">其他需求</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="cf-msg" data-i18n="contact.msg">项目描述</label>
+            <textarea id="cf-msg" data-i18n-ph="contact.msgPh" placeholder="请简单描述您的项目需求..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-submit" data-i18n="contact.submit">提交留言</button>
+          <p class="form-note" data-i18n="contact.note">提交后我们将于 1 个工作日内与您联系</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="#hero"><img class="logo" src="assets/logo.png" alt="竹屹传媒"></a>
+        <p class="f-desc" data-i18n="footer.desc">宜宾竹屹传媒有限公司，以影像、设计与 AI 技术为核心，为品牌提供一站式综合传媒服务。</p>
+      </div>
+      <div>
+        <h5 data-i18n="footer.nav">快速导航</h5>
+        <ul>
+          <li><a href="#about" data-i18n="nav.about">关于公司</a></li>
+          <li><a href="#services" data-i18n="nav.business">核心业务</a></li>
+          <li><a href="#news" data-i18n="nav.news">新闻中心</a></li>
+          <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.biz">核心业务</h5>
+        <ul>
+          <li><a href="#services" data-i18n="services.ai">AI 宣传片</a></li>
+          <li><a href="#services" data-i18n="services.dc">数字内容制作</a></li>
+          <li><a href="#services" data-i18n="services.film">电影摄制服务</a></li>
+          <li><a href="#services" data-i18n="services.design">广告 / 平面设计</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 data-i18n="footer.contact">联系方式</h5>
+        <ul class="f-contact">
+          <li><svg viewBox="0 0 24 24"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span data-i18n="footer.addr">四川省宜宾市</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></svg><span data-i18n="footer.mail">待补充</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg><span data-i18n="footer.tel">待补充</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <span>© <span id="year"></span> <span data-i18n="footer.name">宜宾竹屹传媒有限公司</span> · <span data-i18n="footer.rights">版权所有</span></span>
+      <span data-i18n="footer.slogan">以影像与创意，为品牌注入生命力</span>
+    </div>
+  </div>
+</footer>
+
+<!-- 表单反馈 -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ===== 数据：经营范围 ===== */
+var SCOPE = [
+  {k:'AI宣传片', en:'AI Promotional Films'},
+  {k:'数字内容制作服务', en:'Digital Content Production'},
+  {k:'组织文化艺术交流活动', en:'Cultural & Art Exchanges'},
+  {k:'电影摄制服务', en:'Film Production Services'},
+  {k:'广告设计', en:'Advertising Design'},
+  {k:'企业形象策划', en:'Corporate Image Planning'},
+  {k:'市场营销策划', en:'Marketing Planning'},
+  {k:'会议及展览服务', en:'Conference & Exhibition Services'},
+  {k:'平面设计', en:'Graphic Design'},
+  {k:'图文设计制作', en:'Graphic & Text Design'}
+];
+
+/* ===== 数据：核心业务（文案，图片静态写在 HTML）===== */
+var SERVICES = [
+  {en:'Digital Content', name:'数字内容制作服务', enName:'Digital Content Production', desc:'从数字资产到互动内容，以专业制作团队交付高质量数字内容。', enDesc:'From digital assets to interactive content, deliver high-quality digital output with a professional team.'},
+  {en:'Cultural & Art Exchanges', name:'组织文化艺术交流活动', enName:'Cultural & Art Exchange Events', desc:'策划与执行文化交流活动，以艺术连接品牌与大众。', enDesc:'Plan and run cultural exchange events that connect brands with audiences through art.'},
+  {en:'Film Production', name:'电影摄制服务', enName:'Film Production Services', desc:'覆盖前期、拍摄到后期的完整影视制作流程。', enDesc:'Full-film workflow from pre-production, shooting to post-production.'},
+  {en:'Advertising Design', name:'广告设计', enName:'Advertising Design', desc:'创意广告视觉与投放素材，让品牌被看见、被记住。', enDesc:'Creative ad visuals and assets that make brands seen and remembered.'},
+  {en:'Corporate Image', name:'企业形象策划', enName:'Corporate Image Planning', desc:'构建统一而有辨识度的企业视觉与品牌形象。', enDesc:'Build a consistent, recognizable corporate visual and brand identity.'},
+  {en:'Marketing Planning', name:'市场营销策划', enName:'Marketing Planning', desc:'以数据与洞察驱动，制定可落地的营销策略。', enDesc:'Data-driven, actionable marketing strategies built on real insight.'},
+  {en:'Exhibition Services', name:'会议及展览服务', enName:'Conference & Exhibition Services', desc:'会议会展的策划、搭建与执行一体化服务。', enDesc:'One-stop conference and exhibition planning, build and execution.'},
+  {en:'Graphic Design', name:'平面设计', enName:'Graphic Design', desc:'海报、画册、VI 等多元平面视觉设计。', enDesc:'Posters, brochures, VI and diverse graphic design.'},
+  {en:'Graphic & Text', name:'图文设计制作', enName:'Graphic & Text Design', desc:'从创意到落地，一站式图文设计与制作。', enDesc:'From concept to production, one-stop graphic and text design.'}
+];
+
+/* ===== 数据：新闻（示例占位内容）===== */
+var NEWS = [
+  {date:'2026-09-18', enDate:'Sep 18, 2026', title:'竹屹传媒助力区域品牌完成 AI 宣传片升级', enTitle:'Zhuyi Media helps local brands upgrade with AI promo films', body:'依托 AIGC 内容生产技术，公司为多家合作品牌完成宣传片的高效迭代，显著降低制作周期与成本。', enBody:'Leveraging AIGC production, we helped partner brands iterate their promo films faster, cutting both timeline and cost.'},
+  {date:'2026-08-30', enDate:'Aug 30, 2026', title:'公司完成新一轮数字内容制作项目交付', enTitle:'New round of digital content projects delivered', body:'覆盖企业形象与产品展示的系列数字内容项目陆续交付，赢得客户认可。', enBody:'A series of digital content projects covering corporate image and product showcase were delivered successfully.'}
+];
+
+var isZh = true;
+
+/* ===== 国际化文案 ===== */
+var I18N = {
+  zh: {
+    'nav.about':'关于公司','nav.business':'核心业务','nav.news':'新闻中心','nav.contact':'联系我们','nav.cta':'获取方案',
+    'hero.badge':'宜宾竹屹传媒有限公司','hero.t1':'以影像与创意','hero.t2':'为品牌注入生命力',
+    'hero.lead':'我们专注于 AI 宣传片、数字内容制作与文化传播，为区域品牌提供从策划、摄制到推广的一站式传媒服务。',
+    'hero.cta1':'了解我们','hero.cta2':'联系合作','hero.s1v':'10+','hero.s1':'业务领域','hero.s2v':'100+','hero.s2':'合作项目','hero.s3v':'10','hero.s3':'项核心服务','hero.s4v':'AIGC','hero.s4':'前沿技术驱动','hero.scroll':'向下滚动',
+    'about.tag':'关于公司','about.title':'深耕传媒，笃行致远',
+    'about.p1':'宜宾竹屹传媒有限公司','about.p1b':' 是一家以内容创意与技术为驱动的综合传媒企业，根植宜宾、服务全国，为政府机构与各类企业提供影视、设计、策划与数字内容的一体化解决方案。',
+    'about.p2':'依托 AI 内容生产与专业制作团队，我们将“文化 + 科技”融入每一件作品，助力品牌在数字时代讲好故事、放大声量、沉淀价值。',
+    'about.p3':'从一部 AI 宣传片，到一套完整的企业形象与营销体系，我们以匠心与专业，陪伴合作伙伴共同成长。',
+    'about.scopeTitle':'经营范围','about.v1t':'内容创意','about.v1d':'以洞察驱动策划，让每一句文案、每一帧画面都服务于品牌目标。','about.v2t':'AI 技术','about.v2d':'将 AIGC 融入摄制与制作流程，大幅提升效率，兼顾品质与成本。','about.v3t':'全案服务','about.v3d':'从影视、设计到活动策划与传播，一站式交付，省心高效。',
+    'video.tag':'品牌影片 · AI 宣传片','video.title':'一支片子，讲清一个品牌','video.sub':'这是我们的品牌宣传片。点击播放，感受竹屹传媒如何用影像与 AI，为品牌注入生命力。','video.play':'播放品牌宣传片',
+    'services.tag':'核心业务','services.title':'一站式传媒服务','services.sub':'覆盖影视摄制、内容制作、策划设计与活动会展，以专业团队服务每一个品牌。','services.more':'了解详情',
+    'news.tag':'新闻中心','news.title':'公司动态','news.sub':'了解竹屹传媒的最新进展与行业洞察。','news.more':'阅读更多',
+    'contact.tag':'联系我们','contact.title':'让我们聊聊您的项目','contact.sub':'无论是 AI 宣传片、品牌设计还是活动策划，欢迎随时与我们取得联系。',
+    'contact.infoTitle':'宜宾竹屹传媒有限公司','contact.infoSub':'您可以通过以下方式联系我们，我们将尽快回复。',
+    'contact.addr':'公司地址','contact.addrV':'四川省宜宾市（地址待补充）','contact.tel':'联系电话','contact.telV':'待补充','contact.mail':'电子邮箱','contact.mailV':'待补充',
+    'contact.formTitle':'在线留言','contact.formTip':'留下您的需求，我们会尽快与您联系。',
+    'contact.name':'您的称呼','contact.namePh':'请输入您的称呼','contact.phone':'联系电话','contact.phonePh':'请输入联系电话','contact.need':'您的需求',
+    'contact.opt1':'AI 宣传片制作','contact.opt2':'数字内容 / 影视摄制','contact.opt3':'广告设计 / 品牌策划','contact.opt4':'会议会展服务','contact.opt5':'其他需求',
+    'contact.msg':'项目描述','contact.msgPh':'请简单描述您的项目需求...','contact.submit':'提交留言','contact.note':'提交后我们将于 1 个工作日内与您联系',
+    'footer.desc':'宜宾竹屹传媒有限公司，以影像、设计与 AI 技术为核心，为品牌提供一站式综合传媒服务。',
+    'footer.nav':'快速导航','footer.biz':'核心业务','footer.contact':'联系方式','footer.addr':'四川省宜宾市','footer.mail':'待补充','footer.tel':'待补充',
+    'footer.name':'宜宾竹屹传媒有限公司','footer.rights':'版权所有','footer.slogan':'以影像与创意，为品牌注入生命力',
+    'toast.ok':'留言已提交，感谢您的信任！','toast.demo':'演示环境：表单暂未接入后端',
+    'toast.future':'该功能正在建设中，敬请期待'
+  },
+  en: {
+    'nav.about':'About','nav.business':'Services','nav.news':'News','nav.contact':'Contact','nav.cta':'Get a Quote',
+    'hero.badge':'YIBIN ZHUYI MEDIA CO., LTD.','hero.t1':'With Image & Creativity','hero.t2':'Bring Life to Your Brand',
+    'hero.lead':'We focus on AI promotional films, digital content production and cultural communication, offering one-stop media services from planning, production to promotion.',
+    'hero.cta1':'Learn More','hero.cta2':'Contact Us','hero.s1v':'10+','hero.s1':'Business Areas','hero.s2v':'100+','hero.s2':'Projects Done','hero.s3v':'10','hero.s3':'Core Services','hero.s4v':'AIGC','hero.s4':'Frontier Tech','hero.scroll':'Scroll Down',
+    'about.tag':'About Us','about.title':'Deeply Rooted in Media, Moving Forward with Integrity',
+    'about.p1':'Yibin Zhuyi Media Co., Ltd.','about.p1b':' is a comprehensive media company driven by creativity and technology. Based in Yibin and serving nationwide, we provide integrated solutions in film, design, planning and digital content for governments and enterprises.',
+    'about.p2':'Combining AI content production with a professional creative team, we blend “culture + technology” into every piece of work, helping brands tell better stories, amplify their voice and build lasting value in the digital age.',
+    'about.p3':'From one AI promotional film to a complete corporate image and marketing system, we grow together with our partners through craftsmanship and professionalism.',
+    'about.scopeTitle':'Business Scope','about.v1t':'Creative Content','about.v1d':'Insight-driven planning where every line and frame serves the brand goal.','about.v2t':'AI Technology','about.v2d':'AIGC embedded in production to boost efficiency while balancing quality and cost.','about.v3t':'Full-Service','about.v3d':'One-stop delivery from film and design to event planning and communication.',
+    'video.tag':'Brand Film · AI Promo','video.title':'One Film, One Brand, Clearly Told','video.sub':'This is our brand film. Hit play to see how Zhuyi Media brings brands to life with image and AI.','video.play':'Play Brand Film',
+    'services.tag':'Our Services','services.title':'One-Stop Media Services','services.sub':'Covering film production, content creation, planning and design, and events & exhibitions, serving every brand with a professional team.','services.more':'Learn More',
+    'news.tag':'News Center','news.title':'Company Updates','news.sub':'Follow Zhuyi Media\'s latest progress and industry insights.','news.more':'Read More',
+    'contact.tag':'Contact Us','contact.title':'Let\'s Talk About Your Project','contact.sub':'Whether it\'s an AI promo film, brand design or event planning, feel free to reach out anytime.',
+    'contact.infoTitle':'Yibin Zhuyi Media Co., Ltd.','contact.infoSub':'Reach us through the following channels and we will reply as soon as possible.',
+    'contact.addr':'Address','contact.addrV':'Yibin, Sichuan (to be updated)','contact.tel':'Phone','contact.telV':'To be updated','contact.mail':'Email','contact.mailV':'To be updated',
+    'contact.formTitle':'Online Message','contact.formTip':'Leave your needs and we will contact you soon.',
+    'contact.name':'Your Name','contact.namePh':'Enter your name','contact.phone':'Phone','contact.phonePh':'Enter your phone','contact.need':'Your Need',
+    'contact.opt1':'AI Promo Film','contact.opt2':'Digital Content / Film','contact.opt3':'Ad Design / Branding','contact.opt4':'Conference & Exhibition','contact.opt5':'Other',
+    'contact.msg':'Project Description','contact.msgPh':'Briefly describe your project...','contact.submit':'Submit Message','contact.note':'We will contact you within 1 business day',
+    'footer.desc':'Yibin Zhuyi Media Co., Ltd. provides one-stop integrated media services for brands, powered by film, design and AI technology.',
+    'footer.nav':'Quick Links','footer.biz':'Services','footer.contact':'Contact','footer.addr':'Yibin, Sichuan','footer.mail':'To be updated','footer.tel':'To be updated',
+    'footer.name':'Yibin Zhuyi Media Co., Ltd.','footer.rights':'All Rights Reserved','footer.slogan':'With image & creativity, bring life to your brand',
+    'toast.ok':'Message submitted. Thank you for your trust!','toast.demo':'Demo environment: form not connected to backend yet',
+    'toast.future':'This feature is under construction'
+  }
+};
+
+/* ===== 渲染 ===== */
+function renderScope(){
+  var box = document.getElementById('scopeChips');
+  box.innerHTML = SCOPE.map(function(s){
+    return '<span class="chip" data-sco="'+s.k+'">'+s.k+'</span>';
+  }).join('');
+}
+/* ===== 语言切换 ===== */
+function applyLang(){
+  var dict = I18N[isZh ? 'zh' : 'en'];
+  document.documentElement.lang = isZh ? 'zh-CN' : 'en';
+  document.querySelectorAll('[data-i18n]').forEach(function(el){
+    var k = el.getAttribute('data-i18n');
+    if(dict[k] !== undefined) el.textContent = dict[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+    var k = el.getAttribute('data-i18n-ph');
+    if(dict[k] !== undefined) el.placeholder = dict[k];
+  });
+  document.getElementById('langLabel').textContent = isZh ? 'EN' : '中文';
+  /* 业务卡片 */
+  document.querySelectorAll('[data-svc]').forEach(function(card){
+    var s = SERVICES[+card.getAttribute('data-svc')];
+    card.querySelector('[data-name]').textContent = isZh ? s.name : s.enName;
+    card.querySelector('[data-desc]').textContent = isZh ? s.desc : s.enDesc;
+  });
+  /* 新闻卡片 */
+  document.querySelectorAll('[data-news]').forEach(function(card){
+    var n = NEWS[+card.getAttribute('data-news')];
+    card.querySelector('[data-date]').textContent = isZh ? n.date : n.enDate;
+    card.querySelector('[data-title]').textContent = isZh ? n.title : n.enTitle;
+    card.querySelector('[data-body]').textContent = isZh ? n.body : n.enBody;
+  });
+  /* 经营范围 chips */
+  document.querySelectorAll('[data-sco]').forEach(function(chip){
+    var s = SCOPE.find(function(x){return x.k === chip.getAttribute('data-sco');});
+    if(s) chip.textContent = isZh ? s.k : s.en;
+  });
+  document.title = isZh ? '宜宾竹屹传媒有限公司 · 竹屹传媒 ZHUYI MEDIA' : 'Yibin Zhuyi Media Co., Ltd. · ZHUYI MEDIA';
+}
+
+/* ===== 交互 ===== */
+document.getElementById('langBtn').addEventListener('click', function(){
+  isZh = !isZh;
+  applyLang();
+});
+document.getElementById('burger').addEventListener('click', function(){
+  var m = document.getElementById('menu');
+  m.classList.toggle('open');
+  this.setAttribute('aria-expanded', m.classList.contains('open'));
+});
+document.getElementById('menu').addEventListener('click', function(e){
+  if(e.target.tagName === 'A'){
+    this.classList.remove('open');
+    document.getElementById('burger').setAttribute('aria-expanded','false');
+  }
+});
+
+/* 导航滚动样式 + 当前区块高亮 */
+var nav = document.getElementById('nav');
+var sections = ['about','services','news','contact'];
+window.addEventListener('scroll', function(){
+  nav.classList.toggle('scrolled', window.scrollY > 10);
+  var pos = window.scrollY + 120;
+  var cur = '';
+  sections.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && el.offsetTop <= pos) cur = id;
+  });
+  document.querySelectorAll('.menu a').forEach(function(a){
+    var h = a.getAttribute('href').slice(1);
+    a.classList.toggle('active', h === cur && !!cur);
+  });
+},{passive:true});
+
+/* 品牌影片：点击封面播放 */
+var video = document.getElementById('brandVideo');
+var cover = document.getElementById('videoCover');
+cover.addEventListener('click', function(){
+  video.play().then(function(){ cover.style.display='none'; }).catch(function(){});
+});
+video.addEventListener('play', function(){ cover.style.display='none'; });
+video.addEventListener('pause', function(){ if(video.paused && video.currentTime===0) cover.style.display='flex'; });
+
+/* 滚动揭示 */
+var io = new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+/* 表单提交 */
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var t = document.getElementById('toast');
+  t.textContent = I18N[isZh?'zh':'en']['toast.ok'] + '（' + I18N[isZh?'zh':'en']['toast.demo'] + '）';
+  t.classList.add('show');
+  setTimeout(function(){ t.classList.remove('show'); }, 3200);
+  this.reset();
+});
+
+/* 服务/新闻卡片的"查看"占位反馈 */
+document.querySelectorAll('[data-svc] .svc-more, [data-news] .more').forEach(function(el){
+  el.addEventListener('click', function(){
+    var t = document.getElementById('toast');
+    t.textContent = I18N[isZh?'zh':'en']['toast.future'];
+    t.classList.add('show');
+    setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  });
+});
+
+/* 年份 */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* 初始化 */
+renderScope();
+applyLang();
+</script>
+</body>
+</html>

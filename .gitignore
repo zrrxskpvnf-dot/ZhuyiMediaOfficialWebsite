@@ -1,0 +1,11 @@
+# 自检截图（中间产物，不需要上传）
+_shots/
+
+# 临时缩略图与辅助脚本（中间产物，不需要上传）
+_thumb/
+make_thumbs.py
+
+# 系统/编辑器杂项
+Thumbs.db
+.DS_Store
+*.log
